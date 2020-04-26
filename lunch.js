@@ -1,5 +1,49 @@
 abi =[
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "candidate",
+				"type": "string"
+			}
+		],
+		"name": "voteForCandidate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "candidateNames",
+				"type": "string[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "candidateList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
@@ -55,56 +99,12 @@ abi =[
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "candidateList",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "candidate",
-				"type": "string"
-			}
-		],
-		"name": "voteForCandidate",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "candidateNames",
-				"type": "string[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	}
 ]
 VotingContract = web3.eth.contract(abi);
 // In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
-contractInstance = VotingContract.at('0x0382F9Bc0D2fecA5C95669203bdd09dF5481d397');
-candidates = {'黑咖啡': 'candidate-1', '拿鐵咖啡': 'candidate-2', '卡布奇諾': 'candidate-3'}
+contractInstance = VotingContract.at('0x6149D36218e65c9bD9D83906412e237612F761F4');
+candidates = {'Taiwan': 'candidate-1', 'Taiwan': 'candidate-2', 'American': 'candidate-3'}
 
 function voteForCandidate() {
   candidateName = $('#candidate').val();
